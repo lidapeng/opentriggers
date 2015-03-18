@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20150209</CreaDate><CreaTime>15475400</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.1\ArcToolbox\Toolboxes\Conversion Tools.tbx\ASCIIToRaster" Date="20150209" Time="154754">ASCIIToRaster C:\Users\edward\Dropbox\Project\WETM\testdata1\10mph\WAF\trigger.txt C:\Users\edward\Dropbox\Project\WETM\testdata1\10mph\WAF\waftrigger INTEGER</Process></lineage></DataProperties></Esri></metadata>

@@ -1,0 +1,10 @@
+/* WUIVAC input parameters */
+
+infile:		output.asc
+netfile:	julian.net
+ofile:		julian.txt
+cellfile:	
+ufile:      	julian_u.txt
+trigfile:	trig.asc
+time:		120
+cell:           5050
