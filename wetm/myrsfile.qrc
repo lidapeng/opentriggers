@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>icons/importdata.png</file>
+        <file>icons/newfile.png</file>
+        <file>icons/openfile.png</file>
+        <file>icons/savefile.png</file>
+        <file>icons/fire.PNG</file>
+        <file>icons/buffer.png</file>
+        <file>icons/configureModel.png</file>
+        <file>icons/draghand.png</file>
+        <file>icons/exportmap.png</file>
+        <file>icons/help.png</file>
+        <file>icons/point1.png</file>
+        <file>icons/projects.png</file>
+        <file>icons/zoomin.png</file>
+        <file>icons/zoomout.png</file>
+        <file>icons/export.png</file>
+    </qresource>
+</RCC>
