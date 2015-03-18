@@ -11,7 +11,10 @@
 #include <cmath>
 using namespace std;
 
-//douTble MAXCOST = 9999.0;
+// CTriggers class has the following functionalities:
+// 1) calculate fire behaviors using fireLib;
+// 2) calculate fire travel times between two raster cells and build the travel-time network
+// 3) calculate the trigger buffer using the shortest path algorithm
 
 class CTriggers :public QObject
 {
