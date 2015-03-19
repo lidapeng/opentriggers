@@ -686,12 +686,13 @@ float CTriggers::arcCost(long node1, long node2)
     }
     return cost;
 }
-
+// read input geogaphic feature from a asc raster file
+// calcualte the cell IDs and store them in the array
 int CTriggers::readInputCellFile(string strFileName)
 {
     try
     {
-        //read all the cell IDs from the cell file to the cell array cellArray
+        //clear the cell array
         if (cellArray.size()>0)
         {
             cellArray.clear();
