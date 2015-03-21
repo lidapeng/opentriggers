@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     cthreaddata.cpp \
     cfirebehavior.cpp \
     crasterdataset.cpp \
-    ctriggers.cpp
+    ctriggers.cpp \
+    crastertriggerinput.cpp
 
 HEADERS  += \
     mainwindow.h \
@@ -35,7 +36,8 @@ HEADERS  += \
     cthreaddata.h \
     cfirebehavior.h \
     crasterdataset.h \
-    ctriggers.h
+    ctriggers.h \
+    crastertriggerinput.h
 
 FORMS    += mainwindow.ui \
     dialogdata.ui
