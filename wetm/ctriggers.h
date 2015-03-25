@@ -60,7 +60,9 @@ public:
     long getNeighborID(long node, int direction); // get the neighor's ID
     float arcCost(long node1,long node2); // get arc cost
 
-    int readInputCellFile(string strFileName);
+    int readInputCellFile(string strFileName); //old function
+    int getBoundaryCells(string strFileName);
+
     int calculateTriggerBuffer(long cellID, int time);
     int writeTriggerBuffer(string strFileName);
     bool *getPTriggerBuffer() const;

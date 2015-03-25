@@ -1,5 +1,5 @@
 #include "ctriggers.h"
-
+#include "crastertriggerinput.h"
 //constructor
 
 bool *CTriggers::getPTriggerBuffer() const
@@ -779,6 +779,31 @@ int CTriggers::readInputCellFile(string strFileName)
     }
 
     return 0;
+}
+
+int CTriggers::getBoundaryCells(string strFileName)
+{
+    try
+    {   // clear the cell array if it is not empty
+        if(cellArray.size()>0)
+        {
+            cellArray.clear();
+        }
+
+        CRasterTriggerInput triggerInput (strFileName.c_str());
+        triggerInput.readData();
+
+        boundaryCellArray = triggerInput.getInputRasterFeature();
+
+        for(vector<long>::iterator it = boundaryCellArray.begin();it!= boundaryCellArray.end();it++)
+        {
+            qDebug()<<*it;
+        }
+    }
+    catch(exception& e)
+    {
+        cout<<e.what()<<endl;
+    }
 }
 
 int CTriggers::calculateTriggerBuffer(long cellID, int time)

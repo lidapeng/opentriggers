@@ -23,20 +23,85 @@ CRasterTriggerInput::CRasterTriggerInput(string strFile)
 
 vector<long> CRasterTriggerInput::getInputRasterFeature()
 {
-    vector<long> vInput;
-    cout<<nRows<<" "<<nCols<<endl;
-    if(p!=NULL)
+    try
     {
-        for (long i=0;i<nRows*nCols;i++)
+        vector<long> cellArray;
+        cout<<nRows<<" "<<nCols<<endl;
+        if(p!=NULL)
         {
-            if(p[i] == 1.0)
+            for (long i=0;i<nRows*nCols;i++)
             {
-                vInput.push_back(i);
+                if(p[i] == 1.0)
+                {
+                    cellArray.push_back(i);
+                }
             }
         }
+        cout<<"cellArray vector size: "<<cellArray.size()<<endl;
+        //calculate all the boundary cells and store their IDs in a new array
+        vector<long> boundaryCellArray;
+
+        if ( nRows>0 && nCols>0)
+        {
+            long nCellNum = nRows*nCols;
+            //create an array to store the input cells
+            bool * pCellData = new bool[nCellNum];
+            for (int i=0;i<nRows;i++)
+            {
+                for (int j=0;j<nCols;j++)
+                {
+                    int n = j + i*nCols;
+                    pCellData[n] = false; //initialize the cells to unselected
+                }
+            }
+
+            //set all the input cells to true
+            for (vector<long>::iterator it = cellArray.begin();it!=cellArray.end();++it)
+            {
+                //cout<<"value: "<<*it<<endl;
+                pCellData[*it]= true;
+            }
+            //extract the boundary cells
+            for (vector<long>::iterator it = cellArray.begin();it!=cellArray.end();++it)
+            {
+                //first judge whether the cells are on the boundary of the raster data
+                if (*it/nCols==0 || *it/nCols==nRows-1 || *it%nCols==0 ||*it%nCols==nCols-1)
+                {
+                    boundaryCellArray.push_back(*it);
+                }
+                else //judge the eight neighbor cells for each cell in cellArray
+                {
+                    if(!(pCellData[*it-nCols] && pCellData[*it-nCols-1] && pCellData[*it-nCols+1] && pCellData[*it-1]
+                    && pCellData[*it+1] && pCellData[*it+nCols] && pCellData[*it+nCols-1] && pCellData[*it +nCols+1]))
+                    {
+                        boundaryCellArray.push_back(*it);
+                        //cout<<"boundary cell ID: "<<*it<<endl;
+                    }
+
+                }
+
+            }//end for
+
+            //delete the cell array
+            if (pCellData!=NULL)
+            {
+                delete [] pCellData;
+            }
+        }//end if
+
+        cout<<"total number of boundary cells in the cell file: "<<boundaryCellArray.size()<<endl;
+        for(vector<long>::iterator it = boundaryCellArray.begin(); it != boundaryCellArray.end();it++)
+        {
+            cout<<*it<<endl;
+        }
+        return boundaryCellArray; // return the final array
+    } //end try
+    catch (exception &e)
+    {
+        cout<<e.what()<<endl;
     }
-    cout<<"vector size: "<<vInput.size()<<endl;
-    return vInput;
+
+
 }
 
 
