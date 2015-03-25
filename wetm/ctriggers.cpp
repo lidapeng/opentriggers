@@ -838,13 +838,15 @@ int CTriggers::writeTriggerBuffer(string strFileName)
     ofstream outFile(strFileName.c_str());
     if (outFile.is_open())
     {
+        // write file header
         outFile<<"ncols\t"<<nCols<<endl;
         outFile<<"nrows\t"<<nRows<<endl;
         outFile<<"xllcorner\t"<<xLLCorner<<endl;
         outFile<<"yllcorner\t"<<yLLCorner<<endl;
         outFile<<"cellsize\t"<<cellSize<<endl;
-        outFile<<"NODATA_value\t"<<noDataValue<<endl;
-
+        int nValue =0;
+        outFile<<"NODATA_value\t"<<nValue<<endl;
+        // write data
         for(int i=0;i<nRows;i++)
         {
             for(int j=0;j<nCols;j++)
