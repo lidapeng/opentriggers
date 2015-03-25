@@ -9,7 +9,8 @@ class CRasterTriggerInput : public CRasterDataset
 {
 public:
     CRasterTriggerInput();
-    vector<long> readInputRasterFeature();
+    CRasterTriggerInput(string strFile);
+    vector<long> getInputRasterFeature();
 };
 
 #endif // CRASTERTRIGGERINPUT_H

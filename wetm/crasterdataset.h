@@ -12,7 +12,7 @@ enum RasterType{TNOTYPE,TDEM,TSLOPE,TASPECT,TFUEL,TWINDSPEED,TWINDDIRECT,T1HMOIS
 class CRasterDataset : public QObject
 {
     Q_OBJECT
-private:
+protected:
     int nCols; // number of columns
     int nRows; // number of rows
     double xLLCorner; // leftmost corner x coordinate

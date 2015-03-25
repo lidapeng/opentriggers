@@ -219,7 +219,13 @@ void MainWindow::on_actionEdit_Project_File_triggered()
 
 void MainWindow::on_actionSet_model_input_triggered()
 {
-
+    CRasterTriggerInput triggerInput ("/Users/dapeng/Dropbox/Project/WETM/trigger.txt");
+    triggerInput.readData();
+    vector<long> v = triggerInput.getInputRasterFeature();
+    for(vector<long>::iterator it = v.begin();it!=v.end();it++)
+    {
+        qDebug()<<*it;
+    }
 }
 
 void MainWindow::on_actionExport_trigger_buffer_triggered()

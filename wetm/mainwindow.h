@@ -11,6 +11,8 @@
 #include "crasterdataset.h"
 #include "ctriggers.h"
 #include <QProgressDialog>
+#include <crastertriggerinput.h>
+
 using namespace std;
 
 namespace Ui {
