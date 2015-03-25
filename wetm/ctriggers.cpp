@@ -784,12 +784,7 @@ int CTriggers::readInputCellFile(string strFileName)
 int CTriggers::getBoundaryCells(string strFileName)
 {
     try
-    {   // clear the cell array if it is not empty
-        if(cellArray.size()>0)
-        {
-            cellArray.clear();
-        }
-
+    {
         CRasterTriggerInput triggerInput (strFileName.c_str());
         triggerInput.readData();
 
@@ -820,14 +815,13 @@ int CTriggers::calculateTriggerBuffer(long cellID, int time)
             }
         }
     }
-    if (cellArray.size()>0)
+    // use all boundary cells for the Dijkstra function
+    if (boundaryCellArray.size()>0)
     {
         //for (vector<int>::iterator it = cellArray.begin();it!=cellArray.end();++it)
         for (int i =0;i<boundaryCellArray.size();i++)
         {
             Dijkstra(boundaryCellArray[i],time);
-//			cout<<"Thread ID: "<<omp_get_thread_num()<<"  cell ID: "<<boundaryCellArray[i]<<endl;
-
         }
     }
     else
@@ -844,6 +838,13 @@ int CTriggers::writeTriggerBuffer(string strFileName)
     ofstream outFile(strFileName.c_str());
     if (outFile.is_open())
     {
+        outFile<<"ncols\t"<<nCols<<endl;
+        outFile<<"nrows\t"<<nRows<<endl;
+        outFile<<"xllcorner\t"<<xLLCorner<<endl;
+        outFile<<"yllcorner\t"<<yLLCorner<<endl;
+        outFile<<"cellsize\t"<<cellSize<<endl;
+        outFile<<"NODATA_value\t"<<noDataValue<<endl;
+
         for(int i=0;i<nRows;i++)
         {
             for(int j=0;j<nCols;j++)
