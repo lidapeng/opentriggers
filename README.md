@@ -4,7 +4,12 @@ This project aims to build an opensource software system for setting wildfire ev
 C++, Qt, fireLib
 # Project description:
 The source code is located in the "wetm" folder, while the sample data are in "testdata1" and "smalldata" folders. 
+# Work in Progress
+We are currently working on the following aspects:
+1) Adjust the fire spread rates and validate them using standard fire spread modeling tools (Behave plus)
+2) Further improve the UI. 
 # Relevant literature:
+Li, D., Cova, T.J., & Dennison, P.E. “An open-source software system for setting wildfire evacuation triggers”. 1st ACM SIGSPATIAL International Workshop on the Use of GIS in Emergency Management.
 
 Li, D., Cova, T.J., & Dennison, P.E. (2015). A household-level approach to staging wildfire evacuation warnings using trigger modeling. Computers, Environment, and Urban Systems, 54, 56–67.
 
