@@ -6,6 +6,7 @@ C++, Qt, fireLib
 The source code is located in the "wetm" folder, while the sample data are in "testdata1" and "smalldata" folders. 
 # Work in Progress
 We are currently working on the following aspects:
+
 1) Adjust the fire spread rates and validate them using standard fire spread modeling tools (Behave plus)
 
 2) Further improve the UI. 
